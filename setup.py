@@ -1,7 +1,13 @@
 from setuptools import setup, find_packages
+import sys
+
+app_name = "pyanimenc"
+
+if sys.version_info < (3,):
+    raise Exception("%s's setup.py needs to be run with python3" % (app_name,))
 
 setup(
-    name = "pyanimenc",
+    name = app_name,
     version = "0.1a1",
     description = "Audio/Video Transcoding Frontend",
     long_description = "",
@@ -26,6 +32,7 @@ setup(
         'lxml',
         'pygobject',
         'setuptools',
+        'pyyaml',
     ],
     package_data = {'': ['glade/*.glade']},
     data_files = [
